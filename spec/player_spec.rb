@@ -1,8 +1,9 @@
 require 'player'
 
 describe Player do
-let(:kie) { Player.new('Kie') }
+
 let(:jackie) { Player.new('Jackie') }
+let(:kie) { Player.new('Kie') }
 
   describe '#name' do
     it 'returns player name' do
@@ -10,11 +11,23 @@ let(:jackie) { Player.new('Jackie') }
     end
   end
 
-  describe 'player has hit points' do
+  describe '#hit_points' do
     it 'returns hit points' do
       expect(kie.hit_points).to eq described_class::DEFAULT_HIT_POINTS
+    end
   end
 
+  describe '#attack' do
+    it 'damages the player' do
+      expect(kie).to receive(:receive_damage)
+      jackie.attack(kie)
+    end
+  end
 
-end
+  describe '#receive_damage' do
+    it 'reduces the players hit points' do
+      expect { kie.receive_damage }.to change { kie.hit_points }.by(-10)
+    end
+  end
+  
 end

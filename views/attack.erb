@@ -5,7 +5,9 @@
     <title></title>
   </head>
   <body>
-    <%= $player1 %> hit <%= $player2 %>
+    <%= @player1.name %> hit <%= @player2.name %>
+    <br>
+    <%= @player2.name %>: <%= @player2.hit_points %>HP
 
   </body>
 </html>
