@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './lib/player.rb'
+require_relative './lib/game.rb'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -13,7 +14,6 @@ class Battle < Sinatra::Base
   post '/names' do
     $player1 = Player.new(params[:player1])
     $player2 = Player.new(params[:player2])
-    p params[:player1]
     redirect '/play'
   end
 
@@ -26,7 +26,7 @@ class Battle < Sinatra::Base
   get '/attack' do
     @player1 = $player1
     @player2 = $player2
-    @player1.attack(@player2)
+    Game.new(@player1, @player2).attack(@player2)
     erb :attack
   end
 

@@ -17,17 +17,10 @@ let(:kie) { Player.new('Kie') }
     end
   end
 
-  describe '#attack' do
-    it 'damages the player' do
-      expect(kie).to receive(:receive_damage)
-      jackie.attack(kie)
-    end
-  end
-
   describe '#receive_damage' do
     it 'reduces the players hit points' do
       expect { kie.receive_damage }.to change { kie.hit_points }.by(-10)
     end
   end
-  
+
 end
