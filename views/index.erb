@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Battle time!</title>
+
+<style>
+  .enter-names {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    color: red;
+    margin: 15px;
+  }
+</style>
+
+  <body>
+      <h1 class="enter-names">Enter player names to battle.</h1>
+
+      <form action='/names' method='post'>
+
+        <label for='player1'>
+          Player 1 name
+          <input type='text' name='player1'>
+        </label>
+        <br>
+        <label for='player2'>
+          Player 2 name
+          <input type='text' name='player2'>
+        </label>
+        <br>
+        <input type='submit' value='Submit'>
+      </form>
+
+  </body>
+</html>
