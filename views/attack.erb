@@ -7,6 +7,18 @@
   <body>
     <%= @game.player1.name %> attacked <%= @game.player2.name %>
     <br>
+
+    <img src="/images/steven_img_clear.png" alt="steven" />
+    <br>
+
     <%= @game.player2.name %>: <%= @game.player2.hit_points %>HP
+    <br>
+
+    <h1>It's <%=@game.current_turn.name%>'s Turn'</h1>
+    <br>
+
+    <form action="/attack">
+      <input type="submit" value="Attack">
+    </form>
   </body>
 </html>

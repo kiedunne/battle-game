@@ -5,7 +5,9 @@ require_relative './lib/player.rb'
 require_relative './lib/game.rb'
 
 class Battle < Sinatra::Base
+
   enable :sessions
+  set :session_secret, "My session secret"
 
   get '/' do
     erb(:index)
@@ -19,13 +21,16 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
+    p $game
     @game = $game
+    @game.player1.name
     erb(:play)
   end
 
   get '/attack' do
     @game = $game
     @game.attack(@game.player2)
+    @game.switch_turn(@game.current_turn)
     erb :attack
   end
 
