@@ -5,20 +5,24 @@
     <title></title>
   </head>
   <body>
-    <%= @game.player1.name %> attacked <%= @game.player2.name %>
-    <br>
-
     <img src="/images/steven_img_clear.png" alt="steven" />
     <br>
+    <%  if @game.current_turn == @game.player1 %>
+      <%= @game.player1.name %> attacked <%= @game.player2.name %>
+    <% else %>
+      <%= @game.player2.name %> attacked <%= @game.player1.name %>
+    <% end %>
 
-    <%= @game.player2.name %>: <%= @game.player2.hit_points %>HP
+    <br>
+      <%= @game.player1.name %>: <%= @game.player1.hit_points %>HP
+    <br>
+      <%= @game.player2.name %>: <%= @game.player2.hit_points %>HP
     <br>
 
-    <h1>It's <%=@game.current_turn.name%>'s Turn'</h1>
-    <br>
 
-    <form action="/attack">
-      <input type="submit" value="Attack">
+    <form action="/switch-turns" method="post">
+      <input type="submit" value="OK">
     </form>
+
   </body>
 </html>

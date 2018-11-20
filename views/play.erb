@@ -2,11 +2,12 @@
 <html lang="en" dir="ltr">
   <body>
     <h1><%=@game.player1.name%> vs. <%= @game.player2.name%>!</h1>
-    <h1>A wild <%=@game.player1.name%> appears!</h1>
     <br>
     <img src="/images/steven_img_clear.png" alt="steven" />
-
-    <h2><%=@game.player1.name%>: 60HP</h2>
+    <br>
+    <%= @game.player1.name %>: <%= @game.player1.hit_points %>HP
+    <br>
+    <%= @game.player2.name %>: <%= @game.player2.hit_points %>HP
     <br>
 
     <h1>It's <%=@game.current_turn.name%>'s Turn'</h1>
